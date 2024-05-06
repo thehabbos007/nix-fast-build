@@ -439,6 +439,7 @@ async def remote_temp_dir(opts: Options) -> AsyncIterator[Path]:
 async def nix_eval_jobs(tmp_dir: Path, opts: Options) -> AsyncIterator[Process]:
     args = [
         "nix-eval-jobs",
+        "--impure",
         "--gc-roots-dir",
         str(tmp_dir / "gcroots"),
         "--force-recurse",
